@@ -1,0 +1,293 @@
+////
+/// Styles used to display a 'advanced search' in the header.
+///
+/// @group _advanced-search.scss
+////
+
+///
+@import "../base/_reset.scss";
+@import "../base/_css-colours.scss";
+@import "../base/_variables.scss";
+@import "../base/_mixins.scss";
+@import "../plugins/pikaday.scss";
+
+body {
+	color: $body-font;
+	font-family: $font-stack;
+	font-size: $base-font-size;
+}
+
+button[disabled],
+input[disabled] {
+	background-color: $disabled;
+	border-color: $disabled;
+}
+
+.container {
+	margin: 0 auto;
+ 	max-width: 960px;
+}
+
+.search-wrap {
+	&--is-visible {
+		@include mediaquery ( S ) {
+			padding-bottom: 0;
+		}
+	}
+}
+
+.search__advanced-search-link {
+	color: $accent-1;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.4;
+	margin: 0 10px;
+	padding: 9px;
+	text-decoration: underline;
+}
+
+.advanced-search__wrapper {
+	@include transition ( max-height 0.25s ease-out );
+	background-color: $neutral-1;
+	max-height: 0;
+	overflow: hidden;
+	padding: 0 10px;
+
+	&.visible {
+		@include transition ( max-height 1s ease-in );
+		display: block;
+		height: auto;
+		max-height: 1000px;
+	}
+}
+
+.advanced-search {
+	background: $neutral-1;
+	border: 1px solid $accent-1;
+	margin: 0 auto;
+	max-width: 908px;
+	padding: 30px 25px;
+	position: relative;
+
+	h2 {
+		font-size: 22px;
+		font-weight: normal;
+		margin-bottom: 25px;
+	}
+
+	button {
+		background-color: transparent;
+		border: 0;
+		cursor: pointer;
+		display: inline-block;
+		outline: 0;
+		padding: 0;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	select,
+	label {
+		font-weight: bold;
+	}
+
+	select,
+	&__search-text,
+	&__date-input {
+		border: 1px solid $neutral-8;
+		color: $neutral-8;
+		font-size: 100%;
+		padding: 7px;
+
+		&.error {
+			border-color: $error-font;
+		}
+	}
+
+	&__search-text,
+	&__date-input {
+		padding: 8px;
+	}
+
+	&__search-field,
+	&__search-text,
+	&__logic-operator {
+		margin-right: 1%;
+	}
+
+	&__logic-operator {
+		width: 10%;
+	}
+
+	&__search-field {
+		width: 18%;
+		@include mediaquery ( L ) {
+			width: 20%;
+		}
+	}
+
+	&__search-text {
+		width: 60%;
+
+		@include mediaquery ( M ) {
+			width: 61%;
+		}
+	}
+
+	&__date-input {
+		width: 90px;
+
+		@include mediaquery ( M ) {
+			width: 120px;
+		}
+
+		&:first-child {
+			margin-right: 3px;
+		}
+	}
+
+	&__date-radio {
+		margin-bottom: 3px;
+	}
+
+	&__last-month,
+	&__date-radio {
+		width: auto;
+	}
+
+	&__button {
+		font-size: 100%;
+		font-weight: bold;
+		padding: 8px 60px;
+		width: auto;
+
+		&--close {
+			background-color: $neutral-1;
+			border: 1px solid $neutral-8;
+			color: $neutral-8;
+		}
+
+		&--submit {
+			background-color: $accent-2;
+			border: 1px solid $accent-2;
+			color: $neutral-1;
+			float: right;
+		}
+	}
+
+	&__error {
+		color: $body-font;
+		display: block;
+		font-size: 12px;
+		font-weight: bold;
+		position: absolute;
+
+		&--text {
+			bottom: 55px;
+			left: 0;
+		}
+
+		&--date {
+			bottom: -20px;
+			right: 128px;
+		}
+
+		&.visible {
+			display: block;
+		}
+
+		&.activate {
+			color: $error-font;
+		}
+	}
+
+	.ajax-loader--search {
+		padding-left: 0;
+		margin-top: 0;
+	}
+}
+
+.advanced-search__criteria {
+	margin-bottom: 20px;
+
+	&-title {
+		font-size: 13px;
+		font-weight: bold;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+	}
+
+	&-list {
+		color: $neutral-8;
+		list-style-type: none;
+		margin: 0;
+		padding: 0 0 45px;
+	}
+}
+
+.advanced-search__criteria--text {
+	position: relative;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 20px;
+
+	li {
+		margin-bottom: 15px;
+	}
+}
+
+.advanced-search__criteria--text li:first-child {
+	.advanced-search__search-text {
+		width: 71.5%;
+
+		@include mediaquery (M) {
+			width: 72.5%;
+		}
+	}
+}
+
+.advanced-search__criteria--date {
+	ul {
+		display: table;
+		width: 100%;
+	}
+
+	li {
+		display: table-cell;
+		position: relative;
+		text-align: right;
+
+		&:first-child {
+			margin-left: 0;
+			text-align: left;
+		}
+	}
+
+	label {
+		font-size: 14px;
+		margin-right: 8px;
+	}
+}
+
+.advanced-search__action {
+	&--add {
+		bottom: 0;
+		font-size: 14px;
+		font-weight: bold;
+		position: absolute;
+		height: 25px;
+	}
+
+	&--add,
+	&--remove {
+		font-size: 100%;
+		line-height: 0.8em;
+
+		&.hidden {
+			display: none;
+		}
+	}
+}

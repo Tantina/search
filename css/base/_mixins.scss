@@ -1,0 +1,37 @@
+// Font Converstion Mixin
+// The global unit of measurement for anything relative
+
+// Media Query Mixin with Defined Break Points
+@mixin mediaquery( $viewport ) {
+
+    @if $viewport == S {
+        @media only screen and ( min-width: $S ) {
+            @content;
+        }
+    }
+
+    @if $viewport == M {
+        @media only screen and ( min-width: $M ) {
+            @content;
+        }
+    }
+
+    @if $viewport == L {
+        @media only screen and ( min-width: $L ) {
+            @content;
+        }
+    }
+}
+
+@mixin box-sizing($value) {
+	-webkit-box-sizing : $value;
+	box-sizing : $value;
+}
+
+@mixin transition($value...) {
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-o-transition: $value;
+	transition: $value;
+}
+

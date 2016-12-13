@@ -1,7 +1,6 @@
 # search
 The component for the advanced search.
-Usage of the plugin <a href="https://github.com/dbushell/Pikaday">Pikaday</a>
-
+Usage of the plugin <a href="https://github.com/dbushell/Pikaday">Pikaday</a>.
 
 At first install npm packages:
 

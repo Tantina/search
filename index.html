@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Advanced Search</title>
+    <link rel="stylesheet" type="text/css" href="bundle.css">
+  </head>
+  <body>
+  <div class="container">
+    <span class="search__advanced-search-link js-advanced-search__link">Advanced Search</span>
+    <div class="advanced-search__wrapper">
+        <div class="js-advanced-search advanced-search">
+            <h2>Advanced Search</h2>
+            <form method="get" action="/hub/results/" name="advSearchFrm">
+                <fieldset class="advanced-search__criteria advanced-search__criteria--text">
+                    <div class="advanced-search__criteria-title">Search For</div>
+                    <ul class="advanced-search__criteria-list js-advanced-search__criteria-list--text">
+                        <li>
+                            <label class="hidden" for="search1">Search Term</label>
+                            <input type="text" id="search1" name="search1" placeholder="Enter search string" class="js-advanced-search__search-text advanced-search__search-text" />
+                            <label class="hidden" for="field1">Search restriction</label>
+                            <select id="field1" name="field1" class="js-advanced-search__search-field advanced-search__search-field">
+                                <option value="all-fields" selected="selected">All fields</option>
+                                <option value="document-title">Titles</option>
+                                <option value="author">Author</option>
+                                <option value="comments">Comments</option>
+                                <option value="bibliography">References</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label class="hidden" for="operator2">And, Or and Not</label>
+                            <select id="operator2" name="operator2" class="js-advanced-search__logic-operator advanced-search__logic-operator">
+                                <option value="and" selected="selected">and</option>
+                                <option value="or">or</option>
+                                <option value="and-not">not</option>
+                            </select>
+                            <label class="hidden" for="search2">Search Term</label>
+                            <input type="text" id="search2" name="search2" placeholder="Enter search string" class="js-advanced-search__search-text advanced-search__search-text" />
+                            <label class="hidden" for="field2">Search restriction</label>
+                            <select id="field2" name="field2" class="js-advanced-search__search-field advanced-search__search-field">
+                                <option value="all-fields" selected="selected">All fields</option>
+                                <option value="document-title">Titles</option>
+                                <option value="author">Author</option>
+                                <option value="comments">Comments</option>
+                                <option value="bibliography">References</option>
+                            </select>
+                            <button type="button" class="js-advanced-search__criteria--remove button button--remove advanced-search__action--remove hidden">&#10006;</button>
+                        </li>
+                        <li>
+                            <label class="hidden" for="operator3">And, Or and Not</label>
+                            <select id="operator3" name="operator3" class="js-advanced-search__logic-operator advanced-search__logic-operator">
+                                <option value="and" selected="selected">and</option>
+                                <option value="or">or</option>
+                                <option value="and-not">not</option>
+                            </select>
+                            <label class="hidden" for="search3">Search Term</label>
+                            <input type="text" id="search3" name="search3" placeholder="Enter search string" class="js-advanced-search__search-text advanced-search__search-text" />
+                            <label class="hidden" for="field3">Search restriction</label>
+                            <select id="field3" name="field3" class="js-advanced-search__search-field advanced-search__search-field">
+                                <option value="all-fields" selected="selected">All fields</option>
+                                <option value="document-title">Titles</option>
+                                <option value="author">Author</option>
+                                <option value="comments">Comments</option>
+                                <option value="bibliography">References</option>
+                            </select>
+                            <button type="button" class="js-advanced-search__criteria--remove button button--remove advanced-search__action--remove hidden">&#10006;</button>
+                        </li>
+                    </ul>
+                    <button type="button" class="js-advanced-search__criteria--add advanced-search__action--add">+ add more</button>
+                    <div class="advanced-search__error advanced-search__error--text js-advanced-search__error--text"></div>
+                </fieldset>
+                <fieldset class="advanced-search__criteria advanced-search__criteria--date">
+                    <div class="advanced-search__criteria-title">Search within</div>
+                    <ul class="advanced-search__criteria-list js-advanced-search__criteria-list--date">
+                        <li>
+                            <input type="radio" id="allDates" value="all" name="dateType" checked="checked" class="advanced-search__date-radio" />
+                            <label for="allDates">All Dates</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="set" value="set" name="dateType" class="advanced-search__date-radio" />
+                            <label for="set">In the last</label>
+                            <label class="hidden" for="dateMonths">In the Last</label>
+                            <select id="dateMonths" name="dateMonths" class="js-advanced-search__last-month advanced-search__last-month">
+                                <option value="1">1 Month</option>
+                                <option value="3">3 Months</option>
+                                <option value="6" selected="selected">6 Months</option>
+                                <option value="12">12 Months</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="radio" id="between" value="between" name="dateType" class="advanced-search__date-radio" />
+                            <label for="between">Between</label>
+                            <label class="hidden" for="dateFrom">Start Year</label>
+                            <input type="text" id="dateFrom" class="js-advanced-search__date-input--start advanced-search__date-input" name="dateFrom" placeholder="dd/mm/yyyy" />
+                            <label class="hidden" for="dateTo">End Year</label>
+                            <input type="text" id="dateTo" class="js-advanced-search__date-input--end advanced-search__date-input" name="dateTo" placeholder="dd/mm/yyyy" />
+                            <div class="advanced-search__error advanced-search__error--date js-advanced-search__error--date"></div>
+                        </li>
+                    </ul>
+                </fieldset>
+                <div>
+                    <input type="hidden" name="advancedSearch" value="true" />
+                    <input type="button" class="js-advanced-search__panel-close advanced-search__button advanced-search__button--close" value="close" />
+                    <input type="submit" disabled="disabled" class="js-advanced-search__search-submit advanced-search__button advanced-search__button--submit disabled" value="search" />
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
